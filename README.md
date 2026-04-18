@@ -1,38 +1,45 @@
 # HANDIPAL-APP
-Marketplace for connecting customers with local service providers
------------------
-Stack
+---
 
-Frontend:
--React (Vite)
--JavaScript
+## Stack
 
-Backend:
--FastAPI (Python)
---Uvicorn (server)
+### Frontend:
+- React (Vite)
+- JavaScript
 
-Infra:
--Docker
--Docker Compose
+### Backend:
+- FastAPI (Python)
+- Uvicorn (server)
 
-What it does as of now:
->React runs the UI in the browser
->React calls FastAPI via HTTP (fetch)
->FastAPI returns JSON data
->Docker runs both services together
+### Infra:
+- Docker
+- Docker Compose
 
-How to run?:
+---
+
+## What it does as of now:
+
+- React runs the UI in the browser
+- React calls FastAPI via HTTP (fetch)
+- FastAPI returns JSON data
+- Docker runs both services together
+
+---
+
+## How to run?:
 
 Run with Docker (https://www.docker.com/products/docker-desktop/)
 
 From project root:
-
+```bash
 docker compose up --build
+```
 
-Open app:
+## Acesss:
 
-Frontend:
+- Frontend:
 http://localhost:5173
 
-Backend:
+- Backend:
 http://localhost:8000/test
+
