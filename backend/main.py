@@ -1,19 +1,39 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI()
+from handipal_app.api.v0.router import api_router
+from app.core.config import settings
 
-# It's like a bodyguard.
-# It says that frontend with origin of localhost:5173 is allowed to make requests.
+app = FastAPI(
+    title="HandyMatch API",
+    version="0.1.0",
+    description="Matching handymen with customers based on location and intent"
+)
+
+# -----------------------
+# CORS (frontend connection)
+# -----------------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[
+        "http://localhost:5173",  # Vite dev server
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+# -----------------------
+# API routes
+# -----------------------
+app.include_router(api_router, prefix="/api/v1")
 
-@app.get("/test")
-def test():
-    return {"backend" : "connected"}
+
+# -----------------------
+# Health check
+# -----------------------
+@app.get("/health")
+def health_check():
+    return {
+        "status": "ok"
+    }
