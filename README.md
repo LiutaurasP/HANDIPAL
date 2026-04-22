@@ -43,3 +43,7 @@ http://localhost:5173
 - Backend:
 http://localhost:8000
 
+- Database:
+
+Download DBeaver (https://dbeaver.io/download/) 
+-> connect -> host: "localhost", database/username/password: "handipal"
