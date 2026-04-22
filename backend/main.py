@@ -1,8 +1,14 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from handipal_app.api.v0.router import api_router
-from app.core.config import settings
+from api.v0.router import api_router
+from core.config import settings
+
+
+from core.database import Base, engine
+from models import user  # important: ensures model is registered
+Base.metadata.create_all(bind=engine)
+
 
 app = FastAPI(
     title="HandyMatch API",

@@ -1,4 +1,4 @@
-# HANDIPAL-APP
+# HANDIPAL
 ---
 
 ## Stack
@@ -41,5 +41,5 @@ docker compose up --build
 http://localhost:5173
 
 - Backend:
-http://localhost:8000/test
+http://localhost:8000
 

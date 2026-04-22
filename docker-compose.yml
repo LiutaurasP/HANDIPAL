@@ -1,12 +1,36 @@
 version: "3.9"
 
 services:
-  backend:
-    build: ./backend
+  db:
+    image: postgres:15
+    container_name: handipal-db
+    restart: always
+    environment:
+      POSTGRES_USER: handipal
+      POSTGRES_PASSWORD: handipal
+      POSTGRES_DB: handipal
     ports:
-      - "8000:8000"
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
 
+ 
   frontend:
     build: ./frontend
     ports:
       - "5173:5173"
+ 
+  backend:
+    build: ./backend
+    container_name: handipal-backend
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://handipal:handipal@db:5432/handipal
+      JWT_SECRET: "dev-secret-key"
+
+volumes:
+  pgdata:
