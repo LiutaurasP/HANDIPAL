@@ -6,7 +6,10 @@ from core.config import settings
 
 
 from core.database import Base, engine
-from models import user  # important: ensures model is registered
+from models.user import User
+from models.job import Job
+from models.conversation import Conversation
+from models.message import Message
 Base.metadata.create_all(bind=engine)
 
 
