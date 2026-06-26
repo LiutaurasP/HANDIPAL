@@ -10,6 +10,12 @@ from models.user import User
 from models.job import Job
 from models.conversation import Conversation
 from models.message import Message
+from models.handyman import HandymanProfile
+
+# Not sure if it does anything, but perhaps it destroys the database (to be deleted in working version)
+Base.metadata.drop_all(bind=engine)
+
+# Create DB
 Base.metadata.create_all(bind=engine)
 
 
