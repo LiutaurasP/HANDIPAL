@@ -5,6 +5,6 @@ class Conversation(Base):
     __tablename__ = "conversations"
 
     id = Column(Integer, primary_key=True)
-    job_id = Column(Integer, ForeignKey("jobs.id"))
+    query_id = Column(Integer, ForeignKey("queries.id"))
     client_id = Column(Integer)
     handyman_id = Column(Integer)
