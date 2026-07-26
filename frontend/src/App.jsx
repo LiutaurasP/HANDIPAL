@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h1>HandiPal</h1>
+      <h1>HandiJohn</h1>
       <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   );
